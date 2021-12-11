@@ -98,6 +98,10 @@ public class ListaCircularSE {
         return n;
     }
 
+    public boolean esVacia() {
+        return true;
+    }
+
     @Override
     public String toString() {
         String cadena = "";
@@ -106,11 +110,21 @@ public class ListaCircularSE {
             Nodo actual = primerNodo;
 
             while (actual.siguiente != primerNodo) {
-                cadena += actual.dato + ", ";
+                cadena += realACadena(actual.dato) + ", ";
                 actual = actual.siguiente;
             }
-            cadena += actual.dato;
+            cadena += realACadena(actual.dato);
         }
         return "[" + cadena + "]";
+    }
+    
+    private String realACadena(double real) {
+        int entero = (int) real;
+        String cadena = real + "";
+
+        if (real == entero) {
+            cadena = entero + "";
+        }
+        return cadena;
     }
 }
